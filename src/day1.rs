@@ -37,34 +37,29 @@ fn calibration_value(line: String) -> u32 {
     let chars = line.chars().collect();
     let first = first_digit(&chars, 0..chars.len()) as u32;
     let last = first_digit(&chars, (0..chars.len()).rev()) as u32;
-    return 10 * first + last;
+    10 * first + last
 }
 
 fn first_digit<I>(chars: &Vec<char>, range: I) -> usize
 where
     I: Iterator<Item=usize> {
-    return range
+    range
         .filter_map(|i| digit(chars, i))
         .next()
-        .expect("No digit find in line");
+        .expect("No digit find in line")
 }
 
-fn digit(chars: &Vec<char>, i: usize) -> Option<usize> {
-    return DIGITS.iter()
+fn digit(chars: &[char], i: usize) -> Option<usize> {
+    DIGITS.iter()
         .find(|digit| digit.c == chars[i] || start_with(chars, i, digit.word))
-        .map(|digit| digit.i);
+        .map(|digit| digit.i)
 }
 
 
-fn start_with(chars: &Vec<char>, i: usize, word: &[char]) -> bool {
+fn start_with(chars: &[char], i: usize, word: &[char]) -> bool {
     if !(i + word.len() <= chars.len()) {
         return false;
     }
 
-    for j in i..(i+word.len()) {
-        if chars[j] != word[j-i] {
-            return false;
-        }
-    }
-    return true;
+    chars[i..(i+word.len())].eq(word)
 }
