@@ -215,11 +215,11 @@ fn transpose(interval_vec: Vec<Interval>, transform: &Transform) -> Vec<Interval
         }
 
         if interval_start < category_end {
-            // assign the max between interval_start and category_start to left_start
+            // assign the max between interval_start and category_start to middle_start
             let middle_start = interval_start.max(category_start);
             let middle_length = left_end - middle_start;
 
-            let transpose_start = category_maps[category_map_id].destination_start + interval_start - category_start;
+            let transpose_start = apply_map(interval_start, &category_maps[category_map_id]);
 
             transposed.push(Interval {
                 start: transpose_start,

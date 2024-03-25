@@ -3,7 +3,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
-
+mod day6;
 
 #[cfg(test)]
 mod tests {
@@ -15,6 +15,7 @@ mod tests {
     use super::day3;
     use super::day4;
     use super::day5;
+    use super::day6;
 
     #[test]
     fn test_day1() {
@@ -94,6 +95,22 @@ mod tests {
         let min = day5::lowest_location2(filename)
             .expect(FILE_ERROR_MESSAGE);
         assert_eq!(min, 46);
+    }
+
+    #[test]
+    fn test_day6() {
+        let filename: String = string_path("day6.txt");
+        let product = day6::ways_product(filename)
+            .expect(FILE_ERROR_MESSAGE);
+        assert_eq!(product, 288);
+    }
+
+    #[test]
+    fn test_day6_2() {
+        let filename: String = string_path("day6.txt");
+        let product = day6::ways_product2(filename)
+            .expect(FILE_ERROR_MESSAGE);
+        assert_eq!(product, 71503);
     }
 
     fn string_path(filename: &str) -> String {
