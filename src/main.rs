@@ -7,12 +7,14 @@ mod day3;
 use day3::gear_ratio_sum;
 mod day4;
 use day4::card_count;
+mod day5;
+use day5::lowest_location;
 
 fn main() {
-    let filename = "inputs/day4_input.txt".to_string();
+    let filename = "inputs/day5_input.txt".to_string();
 
-    let sum = card_count(filename)
+    let min = lowest_location(filename)
         .expect("Invalid input file");
 
-    println!("{}", sum);
+    println!("{}", min);
 }

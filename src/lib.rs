@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 
 #[cfg(test)]
@@ -13,6 +14,7 @@ mod tests {
     use super::day2;
     use super::day3;
     use super::day4;
+    use super::day5;
 
     #[test]
     fn test_day1() {
@@ -78,6 +80,21 @@ mod tests {
         assert_eq!(sum, 30);
     }
 
+    #[test]
+    fn test_day5() {
+        let filename: String = string_path("day5.txt");
+        let min = day5::lowest_location(filename)
+            .expect(FILE_ERROR_MESSAGE);
+        assert_eq!(min, 35);
+    }
+
+    #[test]
+    fn test_day5_2() {
+        let filename: String = string_path("day5.txt");
+        let min = day5::lowest_location2(filename)
+            .expect(FILE_ERROR_MESSAGE);
+        assert_eq!(min, 46);
+    }
 
     fn string_path(filename: &str) -> String {
         return INPUT_FOLDER.to_owned() + filename;

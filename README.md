@@ -100,4 +100,7 @@ Its answers provide external links to relevant blog articles for general questio
 
 This will be hit or miss, but serves as a placeholder when stuck when trying to come up with valid syntax.
 
-You can approve the hint by pressing tab or discard it by pressing Escape.
+Various options are available to handle auto-completed code,
+- To accept it, press Tab
+- To discard it, press Escape
+- To generate an alternative solution, presse left arrow
